@@ -1,7 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const {user, logIn} = UserAuth();
+
+  const navigate = useNavigate();
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      await logIn(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+    }
+  }
+
   return (
     <>
         <div className='w-full h-screen relative'>
@@ -10,9 +31,20 @@ const Login = () => {
             <div className='fixed w-full py-24 z-50 mt-24'>
                 <div className='mx-auto max-w-[450px] px-8 py-24 bg-black/90 text-white rounded-lg shadow-xl'>
                     <h1 className='font-bold text-3xl max-w-[380px] mx-auto'>Sign In</h1>
-                    <form className='max-w-[380px] mx-auto py-12'>
-                        <input type="email" placeholder='Email' className='bg-gray-700 rounded outline-none px-4 py-3 w-full' />
-                        <input type="password" placeholder='Password' className='bg-gray-700 rounded outline-none px-4 py-3 w-full mt-4' />
+                    <form onSubmit={handleSignIn} className='max-w-[380px] mx-auto py-12'>
+                        <input 
+                          onClick={(e) => setEmail(e.target.value)} 
+                          type="email" 
+                          placeholder='Email' 
+                          className='bg-gray-700 rounded outline-none px-4 py-3 w-full' 
+                        />
+                        {error && <p className='text-red-500 text-sm mt-2'>* {error}</p>}
+                        <input 
+                          onClick={(e) => setPassword(e.target.value)} 
+                          type="password" 
+                          placeholder='Password' 
+                          className='bg-gray-700 rounded outline-none px-4 py-3 w-full mt-4' 
+                        />
                         <button className='text-white bg-red-600 hover:bg-opacity-60 duration-150 w-full mt-12 py-3 rounded font-bold'>Sign In</button>
                         <div className='my-8 flex justify-between text-sm text-gray-500'>
                             <p>
