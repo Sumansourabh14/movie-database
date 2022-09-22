@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { backdrop_URL_Small } from '../Requests';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Movie from './Movie';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Row = (props) => {
     const [movies, setMovies] = useState([]);
-    const [like, setLike] = useState(false);
 
     useEffect(() => {
         axios
@@ -15,30 +15,38 @@ const Row = (props) => {
             ))
     }, [props.fetchURL])
 
+    // Slider functionality - giving each row a unique id
+    const slideLeft = () => {
+        let slider = document.getElementById('slider' + props.rowId);
+        slider.scrollLeft = slider.scrollLeft - 500;
+    }
+
+    const slideRight = () => {
+        let slider = document.getElementById('slider' + props.rowId);
+        slider.scrollLeft = slider.scrollLeft + 500;
+    }
+
     return (
-        <section className='px-6 py-4'>
+        <section className='px-6 py-4 relative'>
             <h2 className='text-white'>{props.title}</h2>
-            <div className='py-4 relative flex items-center'>
-                <ul id={'slider'}>
+    
+            <div className='py-4 relative flex items-center group'>
+                <FontAwesomeIcon 
+                    icon={faChevronLeft}
+                    className="text-white text-3xl lg:text-4xl absolute left-2 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
+                    onClick={slideLeft}
+
+                />
+                <ul id={"slider" + props.rowId} className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
                     {movies.map((movie, id) => (
-                        <li className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative mx-2'>
-                            <img
-                                className='block w-full h-auto' 
-                                src={backdrop_URL_Small + movie?.backdrop_path} 
-                                alt={movie?.title} 
-                            />
-                            <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 duration-200 text-white'>
-                                <p className='flex items-center justify-center text-center h-full font-bold text-xs md:text-sm whitespace-normal px-2'>{movie?.title}</p>
-                                {/* <p>
-                                    {like ? <FaHeart className='absolute top-4 left-4 text-gray-300' /> : <FaRegHeart className='absolute top-4 left-4 text-gray-300' />}
-                                </p> */}
-                                <p className='absolute top-2 left-2 text-gray-300'>
-                                    {like ? <FaHeart /> : <FaRegHeart />}
-                                </p>
-                            </div>
-                        </li>
+                        <Movie key={movie.id} movie={movie} />
                     ))}
                 </ul>
+                <FontAwesomeIcon
+                    onClick={slideRight}
+                    icon={faChevronRight}
+                    className="text-white text-3xl lg:text-4xl absolute right-2 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
+                />
             </div>
         </section>
     )
