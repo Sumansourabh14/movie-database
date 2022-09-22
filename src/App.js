@@ -1,14 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import { Navbar } from './components';
-import Home from './pages/Home';
+import { AuthContextProvider } from './context/AuthContext';
+import { Home, Account, Login, SignUp } from './pages';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <AuthContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/account" element={<Account />} />
+        </Routes>
+      </AuthContextProvider>
     </>
   );
 }
