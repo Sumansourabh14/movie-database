@@ -27,13 +27,13 @@ const Row = (props) => {
     }
 
     return (
-        <section className='px-6 py-4 relative'>
-            <h2 className='text-white'>{props.title}</h2>
+        <section className='px-6 py-5 relative'>
+            <h2 className='text-white text-xl font-bold'>{props.title}</h2>
     
             <div className='py-4 relative flex items-center group'>
                 <FontAwesomeIcon 
                     icon={faChevronLeft}
-                    className="text-white text-3xl lg:text-4xl absolute left-2 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
+                    className="text-white text-3xl lg:text-4xl absolute left-0 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
                     onClick={slideLeft}
 
                 />
@@ -45,7 +45,7 @@ const Row = (props) => {
                 <FontAwesomeIcon
                     onClick={slideRight}
                     icon={faChevronRight}
-                    className="text-white text-3xl lg:text-4xl absolute right-2 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
+                    className="text-white text-3xl lg:text-4xl absolute right-0 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
                 />
             </div>
         </section>

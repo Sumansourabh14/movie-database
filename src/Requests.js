@@ -7,6 +7,12 @@ const API_REQUESTS = {
     requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
     requestTopUpcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
     requestTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
+    requestTrending: `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`,
+    requestSciFi: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=878`,
+    requestWar: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=10752`,
+    requestCrime: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=80`,
+    requestAnimation: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`,
+    requestHorror: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=27`,
 }
 
 export default API_REQUESTS;
