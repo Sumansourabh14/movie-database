@@ -57,7 +57,7 @@ const SignUp = () => {
                             <p>
                                 <input type="checkbox" /> Remember me
                             </p>
-                            <a href='#' className='hover:underline'>Need Help?</a>
+                            <a href='https://www.netflix.com/LoginHelp' className='hover:underline'>Need Help?</a>
                         </div>
                         <p className='text-sm text-gray-500'>Already a member? <Link to="/login" className='hover:underline duration-100 text-white'>Sign in now</Link></p>
                     </form>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { backdrop_URL_Small } from '../Requests';
 
 const Movie = ({ movie }) => {
-    const [like, setLike] = useState(false);
+    // const [like, setLike] = useState(false);
 
     return (
         <li className='w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative mr-4'>
@@ -16,11 +16,9 @@ const Movie = ({ movie }) => {
                 <p className='flex items-center justify-center text-center h-full font-bold text-xs md:text-sm whitespace-normal px-2'>
                     {movie?.title ? movie?.title : movie?.name}
                 </p>
-                {/* <p>
-                    {like ? <FaHeart className='absolute top-4 left-4 text-gray-300' /> : <FaRegHeart className='absolute top-4 left-4 text-gray-300' />}
-                </p> */}
                 <p className='absolute top-2 left-2 text-gray-300'>
-                    {like ? <FaHeart /> : <FaRegHeart />}
+                    {/* {like ? <FaHeart /> : <FaRegHeart />} */}
+                    <FaRegHeart />
                 </p>
             </div>
         </li>
