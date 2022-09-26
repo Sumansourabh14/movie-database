@@ -18,12 +18,12 @@ const Row = (props) => {
     // Slider functionality - giving each row a unique id
     const slideLeft = () => {
         let slider = document.getElementById('slider' + props.rowId);
-        slider.scrollLeft = slider.scrollLeft - 500;
+        slider.scrollLeft = slider.scrollLeft - 600;
     }
 
     const slideRight = () => {
         let slider = document.getElementById('slider' + props.rowId);
-        slider.scrollLeft = slider.scrollLeft + 500;
+        slider.scrollLeft = slider.scrollLeft + 600;
     }
 
     return (
@@ -35,7 +35,6 @@ const Row = (props) => {
                     icon={faChevronLeft}
                     className="text-white text-3xl lg:text-4xl absolute left-0 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
                     onClick={slideLeft}
-
                 />
                 <ul id={"slider" + props.rowId} className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
                     {movies.map((movie, id) => (
