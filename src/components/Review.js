@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 
 const Review = ({ review }) => {
     return (
-        <li className="flex items-start pb-16">
+        <li className="grid grid-cols-[100px_120px_1fr] pb-[100px]">
             <img
                 src={review?.author_details?.avatar_path?.slice(1)}
                 alt={review?.author}
