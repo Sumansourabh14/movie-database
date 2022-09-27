@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Navbar } from './components';
 import ProtectedRoute from './components/ProtectedRoute';
+// import SearchMovie from './components/SearchMovie';
 import { AuthContextProvider } from './context/AuthContext';
 import { Home, Account, Login, SignUp } from './pages';
 import MovieDetails from './pages/MovieDetails';
@@ -10,6 +11,7 @@ function App() {
     <>
       <AuthContextProvider>
         <Navbar />
+        {/* <SearchMovie /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />

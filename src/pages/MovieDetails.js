@@ -26,6 +26,7 @@ const MovieDetails = () => {
             .get(movieDetailURL)
             .then(res => {
                 setInfo(res.data)
+                window.scrollTo(0, 0)
             })
     }, [movieDetailURL])
 
@@ -88,7 +89,7 @@ const MovieDetails = () => {
                         <p><FaStar /></p>
                     </div>
                     <div className='text-lg lg:text-xl my-4'>
-                        <p>{Math.round(info?.runtime/60)} Hrs {info?.runtime % 60} Minutes</p>
+                        <p>{Math.floor(info?.runtime/60)} Hrs {info?.runtime % 60} Minutes</p>
                     </div>
                     <ul>
                         {info?.genres?.map(genre => (
