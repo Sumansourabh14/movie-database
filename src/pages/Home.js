@@ -14,6 +14,9 @@ const Home = () => {
         <Row rowId='6' title="Crime" fetchURL={API_REQUESTS.requestCrime} />
         <Row rowId='7' title="Animation" fetchURL={API_REQUESTS.requestAnimation} />
         <Row rowId='8' title="Horror" fetchURL={API_REQUESTS.requestHorror} />
+        <Row rowId='9' title="Comedy" fetchURL={API_REQUESTS.requestComedy} />
+        <Row rowId='10' title="Drama" fetchURL={API_REQUESTS.requestDrama} />
+        <Row rowId='11' title="Adventure" fetchURL={API_REQUESTS.requestAdventure} />
     </div>
   )
 }

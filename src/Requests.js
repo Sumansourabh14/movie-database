@@ -15,6 +15,9 @@ const API_REQUESTS = {
     requestCrime: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=80`,
     requestAnimation: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`,
     requestHorror: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=27`,
+    requestComedy: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=35`,
+    requestAdventure: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=12`,
+    requestDrama: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=18`,
 }
 
 export const getMovieDetails = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${API_KEY}&language=en-US`
