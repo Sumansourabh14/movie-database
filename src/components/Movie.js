@@ -15,11 +15,19 @@ const Movie = ({ movie }) => {
                     src={backdrop_URL_Small + movie?.backdrop_path}
                     alt={movie?.title}
                 />
-                <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 duration-200 text-white'>
+                {/* <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 duration-200 text-white'>
                     <p className='flex items-center justify-center text-center h-full font-bold text-xs md:text-sm whitespace-normal px-2'>
                         {movie?.title ? movie?.title : movie?.name}
                     </p>
                     <p className='absolute top-2 left-2 text-gray-300'>
+                        <FaRegHeart />
+                    </p>
+                </div> */}
+                <div className='absolute top-0 left-0 w-full h-full md:hover:bg-black/80 md:opacity-0 md:hover:opacity-100 duration-200 text-white'>
+                    <p className='flex items-end bg-black/80 md:items-center justify-center text-center md:h-full py-2 md:py-0 font-bold text-xs md:text-sm whitespace-normal px-2'>
+                        {movie?.title ? movie?.title : movie?.name}
+                    </p>
+                    <p className='absolute top-2 left-2 text-gray-300 hidden md:block'>
                         <FaRegHeart />
                     </p>
                 </div>
