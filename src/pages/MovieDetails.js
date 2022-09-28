@@ -48,7 +48,6 @@ const MovieDetails = () => {
         axios
             .get(similarMoviesURL)
             .then(res => {
-                console.log(res.data)
                 setMovies(res.data)
             })
     }, [similarMoviesURL])
@@ -81,31 +80,47 @@ const MovieDetails = () => {
                     />
                 </div>
                 <div className='mb-6 sm:mb-0 sm:pr-10 md:pr-20'>
-                    <h1 className='text-4xl md:text-5xl 2xl:text-6xl font-bold mb-6'>
+                    <h1 className='text-3xl sm:text-4xl md:text-5xl 2xl:text-6xl font-bold mb-6'>
                         {info?.title ? info?.title : info?.original_name} ({info?.release_date?.slice(0, 4)})
                     </h1>
-                    <div className='flex items-center text-2xl lg:text-3xl my-4'>
+
+                    {/* Rating and runtime */}
+                    <div className='flex items-center text-2xl lg:text-2xl my-6'>
                         <p className='mr-2'>{Math.round(info?.vote_average)}</p> 
-                        <p><FaStar /></p>
+                        <p><FaStar className='text-yellow-400' /></p>
+                        <div>
+                            <p>&nbsp;| {Math.floor(info?.runtime/60)} Hrs {info?.runtime % 60} Minutes</p>   
+                        </div>
                     </div>
-                    <div className='text-lg lg:text-xl my-4'>
-                        <p>{Math.floor(info?.runtime/60)} Hrs {info?.runtime % 60} Minutes</p>
-                    </div>
+
+                    {/* Languages */}
+                    <ul className='text-stone-300 flex my-6'>
+                        {info?.spoken_languages?.map((lang, index) => (
+                            <li key={lang?.name} className='mr-2'>{lang?.english_name}{index === info?.spoken_languages?.length - 1 ? "" : ","}</li>
+                        ))}
+                    </ul>
+
+                    {/* Genre */}
                     <ul>
                         {info?.genres?.map(genre => (
                             <li 
-                                className='inline-block text-neutral-200 bg-stone-700 px-3 py-1 rounded mr-2'
+                                key={genre?.id}
+                                className='inline-block text-neutral-200 bg-stone-700 px-3 py-1 rounded mr-2 mb-2 xl:mb-0'
                             >
                                 {genre?.name}
                             </li>
                         ))}
                     </ul>
+
+                    {/* Tagline and overview of the movie */}
                     <h2 className='text-2xl my-6'>{info?.tagline}</h2>
-                    <p className='text-sm max-w-[800px] my-6'>{info?.overview}</p>
-                    <h3 className='text-3xl my-6'>Cast</h3>
-                    <ul className='text-sm grid grid-cols-5 lg:grid-cols-7'>
+                    <p className='text-base max-w-[800px] mb-8'>{info?.overview}</p>
+
+                    {/* Cast of the movie */}
+                    <h3 className='text-3xl my-8 mb-4 font-bold'>Cast</h3>
+                    <ul className='text-sm grid grid-cols-5 lg:grid-cols-7 justify-between items-center'>
                         {cast?.cast?.slice(0, 7)?.map((castName) => (
-                            <li className='mr-2 flex flex-col items-center text-center'>
+                            <li key={castName?.name} className='mr-2 flex flex-col items-center text-center'>
                                 <h4>{castName?.name}</h4>
                                 <img 
                                     className='w-[100px] object-center mt-2' 
@@ -115,10 +130,11 @@ const MovieDetails = () => {
                             </li>
                         ))}
                     </ul>
+
                     <div className='my-4'>
-                        <h3 className='text-3xl mt-8'>Director</h3>
+                        <h3 className='text-3xl mt-8 mb-4 font-bold'>Director</h3>
                         {cast?.crew?.filter((crewName) => crewName?.job === "Director")?.map((crewName) => (
-                            <div className='mt-6'>
+                            <div key={crewName?.name} className='mt-6'>
                                 <h4>{crewName?.name}</h4>
                                 <img 
                                     className='w-[80px] object-center mt-2' 
@@ -131,7 +147,7 @@ const MovieDetails = () => {
                 </div>
             </div>
                 
-            <h3 className='text-3xl max-w-[1500px] mx-auto my-6 px-6'>Similar Movies</h3>
+            <h3 className='text-3xl max-w-[1500px] mx-auto my-6 px-6 font-bold'>Similar Movies</h3>
             <div className='px-6 pb-8 max-w-[1500px] mx-auto relative group flex items-center'>
                 <FontAwesomeIcon
                     onClick={slideLeft}
@@ -149,8 +165,9 @@ const MovieDetails = () => {
                     className="text-white text-3xl lg:text-4xl absolute right-0 hidden group-hover:block z-10 opacity-70 hover:opacity-100 cursor-pointer" 
                 />
             </div>
+
             <ul className='px-6 py-4 max-w-[1500px] mx-auto'>
-                <h3 className='text-3xl my-6'>Reviews</h3>
+                <h3 className='text-3xl my-6 font-bold'>Reviews</h3>
                 {reviews?.results?.map(review => (
                     <Review key={review?.id} review={review} />
                 ))}
