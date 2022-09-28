@@ -43,8 +43,27 @@ Find the latest, top-rated and genre based movies plus their ratings, cast and r
 - React icons
 - Fontawesome icons
 
+## Movie Details Page
+
+This page displays the details of a movie such as
+- A background poster
+- Rating and runtime
+- Languages and genre
+- Synopsis or overview
+- Cast and director
+- Similar movies
+- Reviews
+
+### On larger screens:
+
+![Schindler's List](src/assets/Schindler's-List-large-screen.jpeg)
+
+### On mobile screens:
+
+![Bullet Train](src/assets/Bullet-Train-mobile-screen.png)
+
 ## Helpful Links
 
-- [Hosted website](https://movies-tv-db-react.web.app/)
+- [Hosted website](https://movies-tv-db-react.web.app/) (on Firebase)
 - [How to deploy Firebase project?](https://dev.to/guillerbr/deploy-reactjs-on-firebase-hosting-4mpj)
 - [TMDB Movies API](https://www.themoviedb.org/documentation/api)
