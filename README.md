@@ -62,6 +62,12 @@ This page displays the details of a movie such as
 
 ![Bullet Train](src/assets/Bullet-Train-mobile-screen.png)
 
+## Screenshots
+
+MovieDB on mobile screens:
+
+![MovieDB on mobile screens](src/assets/MovieDB-small-screen.png)
+
 ## Helpful Links
 
 - [Hosted website](https://movies-tv-db-react.web.app/) (on Firebase)
