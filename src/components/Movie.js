@@ -20,7 +20,6 @@ const Movie = ({ movie }) => {
                         {movie?.title ? movie?.title : movie?.name}
                     </p>
                     <p className='absolute top-2 left-2 text-gray-300'>
-                        {/* {like ? <FaHeart /> : <FaRegHeart />} */}
                         <FaRegHeart />
                     </p>
                 </div>

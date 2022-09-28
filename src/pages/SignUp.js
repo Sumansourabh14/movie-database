@@ -52,7 +52,7 @@ const SignUp = () => {
                             placeholder='Password' 
                             className='bg-gray-700 rounded outline-none px-4 py-2 w-full mt-4' 
                         />
-                        <button className='text-white bg-red-600 hover:bg-opacity-60 duration-150 w-full mt-10 py-3 rounded font-bold'>Sign Up</button>
+                        <button className='text-white bg-green-600 hover:bg-opacity-60 duration-150 w-full mt-10 py-3 rounded font-bold'>Sign Up</button>
                         <div className='my-8 flex justify-between text-sm text-gray-500'>
                             <p>
                                 <input type="checkbox" /> Remember me
